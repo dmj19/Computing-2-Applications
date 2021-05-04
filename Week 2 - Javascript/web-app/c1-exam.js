@@ -9,15 +9,15 @@ const Exam = Object.create(null);
 
 // Lists
 
-// Write a function that returns a list containig every third item in
+// Write a function that returns a list containing every third item in
 // the original list starting with the first item.
 //    for example:
 //      an input list of [1,2,3,4,5,6,7,8]
 //      returns [1,4,7]
-Exam.every_third = function () {
-    return;
+Exam.every_third = function (input_list) {
+    //Function returns every third item in the list provided 
+    return input_list.filter((ignore,n)=> n%3===0);
 };
-
 
 // Strings
 
@@ -29,7 +29,12 @@ Exam.every_third = function () {
 //       the input sentences "the cow jumped over the moon" and
 //                            "jack and jill went up the"
 //       returns "the jack cow and jumped jill over went the up moon the"
-Exam.merge_sentences = function () {
+Exam.merge_sentences = function (sentence_one,sentence_two) {
+    let sentence_one= sentence_one.split(" ");
+    let sentence_two= sentence_two.split(" ");
+    if  (sentence_one.length !== sentence_two.length){
+        throw "ValueError";
+    }
     return;
 };
 
