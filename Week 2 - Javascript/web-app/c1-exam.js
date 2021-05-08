@@ -116,9 +116,9 @@ Exam.floor_line = function (x, scalar=1, offset=0) {
     }
 };
 
-        export default Object.freeze(Exam)}
+export default Object.freeze(Exam);
 
-        debugger;
+    
 
 
 
