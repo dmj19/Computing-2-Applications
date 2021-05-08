@@ -40,6 +40,7 @@ Exam.merge_sentences = function (sentence_one_words,sentence_two_words) {
             final_sentence.push(sentence_one[i]);  
             final_sentence.push(sentence_two[i]);
         return final_sentence.join(" ");
+        }
 };
 
 // Write a function that returns the number of lowercase letters in
@@ -78,12 +79,10 @@ Exam.longest_key = function (long_key) {
 Exam.value_greatest_even = function (value_dict) {
     var start_value=0;
     for (var value in value_dict); {
-        if ((value_dict[value] % 2 == 0) and value_dict[value]>start_value); {
+        if (value_dict[value] % 2 == 0) and (value_dict[value]>start_value); {
             start_value= value_dict[value]; 
         } 
-        else {
-            continue;
-        }
+        
         return start_value;
     }
 };
@@ -109,7 +108,7 @@ Exam.greeting = function (username, location='London') {
 // if the output value of the calculation is positive, otherwise it returns 0.
 Exam.floor_line = function (x, scalar=1, offset=0) {
     answer = x*scalar+offset; //maths calculation desired
-    if answer>0 { //determine whether the calculation answer is positive
+    if (answer>0) { //determine whether the calculation answer is positive
         return answer;
     }
     else  {
@@ -118,6 +117,8 @@ Exam.floor_line = function (x, scalar=1, offset=0) {
 };
 
         export default Object.freeze(Exam)}
+
+        debugger;
 
 
 
