@@ -14,6 +14,7 @@ const Exam = Object.create(null);
 //    for example:
 //      an input list of [1,2,3,4,5,6,7,8]
 //      returns [1,4,7]
+
 Exam.every_third = function (input_list) {
     //Function returns every third item in the list provided 
     return input_list.filter((ignore,n)=> n%3===0);
