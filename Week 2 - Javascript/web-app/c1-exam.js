@@ -35,13 +35,12 @@ Exam.merge_sentences = function (sentence_one_words,sentence_two_words) {
     var sentence_two= sentence_two.split(" ");
     if  (sentence_one.length !== sentence_two.length) {
         throw "ValueError"; 
-    } else {
-        for (i = 0; i<(sentence_one.length)+1; i++) {
+    } 
+    for (i = 0; i<(sentence_one.length)+1; i+=1) {
             final_sentence.push(sentence_one[i]);  
             final_sentence.push(sentence_two[i]);
-        return final_sentence.join(" ");
-        }
-};
+    return final_sentence.join(" ");
+    };
 
 // Write a function that returns the number of lowercase letters in
 // input string.
@@ -62,7 +61,6 @@ Exam.lowercase_count = function (input_string) {
 // Write a function that returns the longest a key in the input object
 // whose keys are all strings.
 Exam.longest_key = function (long_key) {
-    var longest_word='' ; //creating a variable with letter length of 0 to compare word length
     for (var key in long_key) { //iterating through all the words in the keys 
         if (long_key[key].length > longest_word.length) {
             let longest_word = long_key[key];//comparing the length of every word and storing it as the longest
@@ -111,28 +109,9 @@ Exam.floor_line = function (x, scalar=1, offset=0) {
     if (answer>0) { //determine whether the calculation answer is positive
         return answer;
     }
-    else  {
-        return 0; //f the answer is negative, 0 is returned 
-    }
-};
-
-export default Object.freeze(Exam);
-
-    
+    return 0; //f the answer is negative, 0 is returned 
+    };
 
 
 
-        // function amountOfLowercaseLetters(inputString) {
-        //     let count = 0;
-          
-        //     // loop over every char
-        //     for (const char of inputString) {
-        //       // check if it is lowercase
-        //       if (char.match(/[a-z]/)) {
-        //         // if yes, increase count
-        //         count += 1;
-        //       }
-        //     }
-          
-        //     return count;
-        //   }
+export default Object.freeze(Exam)}
