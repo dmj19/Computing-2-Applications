@@ -1,3 +1,5 @@
+import { object } from "fast-check";
+
 /**
  * This worksheet adapts the final question of Exam 1 of Computing 1 2020/21.
  * Here you should complete each of the functions as they are specified.
@@ -36,56 +38,77 @@ Exam.merge_sentences = function (sentence_one_words,sentence_two_words) {
     var sentence_two= sentence_two.split(" ");
     if  (sentence_one.length !== sentence_two.length) {
         throw "ValueError"; 
-    } 
-    for (i = 0; i<(sentence_one.length)+1; i+=1) {
-            final_sentence.push(sentence_one[i]);  
-            final_sentence.push(sentence_two[i]);
-    return final_sentence.join(" ");
-    };
+    }
+    return s1_words.flatMap((v, k) => [v, s2_words[k]]).join(" ");
+};
+    
 
-// Write a function that returns the number of lowercase letters in
+
+//     for (i = 0; i<(sentence_one.length)+1; i+=1) {
+//             final_sentence.push(sentence_one[i]);  
+//             final_sentence.push(sentence_two[i]);
+//     return final_sentence.join(" ");
+//     };
+
+// // Write a function that returns the number of lowercase letters in
 // input string.
 //     for example:
 //          the input "sPonGe bOb"
 //          returns 6
 
-Exam.lowercase_count = function (input_string) {
-    return input_string
-      .split("") // convert into array
-      .filter((char) => char.match(/[a-z]/)) // filter out all lowercase chars
-      .length; // take
-};
+// Exam.lowercase_count = function (input_string) {
+//     return input_string
+//       .split("") // convert into array
+//       .filter((char) => char.match(/[a-z]/)) // filter out all lowercase chars
+//       .length; // take
+// };
 
+Exam.lowercase_count = function (input_string) {
+    const letters = input_string.split("");
+   return letters.filter((l)=> l !== l.toUpperCase()).length
+}: 
+   
 
 // Objects
 
-// Write a function that returns the longest a key in the input object
+// Write a function that returns the longest key in the input object
 // whose keys are all strings.
+// Exam.longest_key = function (long_key) {
+//     for (var key in long_key) { //iterating through all the words in the keys 
+//         if (long_key[key].length > longest_word.length) {
+//             let longest_word = long_key[key];//comparing the length of every word and storing it as the longest
+//         }
+//         else {
+//             continue;
+//         }
+//     }
+//     return longest_word;
+// };
 Exam.longest_key = function (long_key) {
-    for (var key in long_key) { //iterating through all the words in the keys 
-        if (long_key[key].length > longest_word.length) {
-            let longest_word = long_key[key];//comparing the length of every word and storing it as the longest
-        }
-        else {
-            continue;
-        }
-    }
-    return longest_word;
-};
-
+    return Object.keys(object). reduce((a,x) => (
+        a.length >= x.length;
+        ? a
+        : x
+    ))
+}; 
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
-Exam.value_greatest_even = function (value_dict) {
-    var start_value=0;
-    for (var value in value_dict); {
-        if (value_dict[value] % 2 == 0) and (value_dict[value]>start_value); {
-            start_value= value_dict[value]; 
-        } 
+// Exam.value_greatest_even = function (value_dict) {
+//     var start_value=0;
+//     for (var value in value_dict); {
+//         if (value_dict[value] % 2 == 0) and (value_dict[value]>start_value); {
+//             start_value= value_dict[value]; 
+//         } 
         
-        return start_value;
-    }
-};
+//         return start_value;
+//     }
+// };
 
+// input dictionary whose values are all whole numbers.
+Exam.value_greatest_even = function (value_dict) {
+    const evens=Object.values(object).filter((v)=> v%2===0);
+    return Math.max(...evens);
+};
 // Arguments
 
 // Write a function with two input arguments "username" and "location".
@@ -93,8 +116,8 @@ Exam.value_greatest_even = function (value_dict) {
 //
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
-Exam.greeting = function (username, location='London') {
-    return 'Hello, ' + username + ", how is " + location + '?'; 
+Exam.greeting = function(username, location="London") {
+    return 'Hello, ' + {username} + ", how is " + {location} + '?'; 
 };
 
 
