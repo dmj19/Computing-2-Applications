@@ -135,6 +135,17 @@ const row_left = pipe(
     pad_zeros
 );
 
+game_2048.any_valid_moves = function (board) { 
+    return Boolean ((board.left!==board.right) and (board.up!==board.down))
+};
+
+game_2048.free_spaces = (board) => {
+    return board.filter((x)=> indexOf(x));
+}; 
+
+return input_list.filter((ignore,n)=> n%3===0);
+
+
 game_2048.left = (board) => board.map(row_left);
 
 // game_2048.right = (board) => h_flip(game_2048.left(h_flip(board)));
