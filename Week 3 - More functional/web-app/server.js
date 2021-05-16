@@ -19,5 +19,22 @@ const board = [
     [0, 0, 1, 1],
     [0, 2, 2, 3]
 ];
+const blank_board = [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
+];
+
+const score= board.map((x) => (2**x));
+
+const print_score= function(score) {
+    return score.reduce((a, b) => (a + b),0);
+};
 
 print_boards(board, right(board));
+print_boards(blank_board, right(blank_board));
+print_score(score);
+}
+
+import factorial from "./factorials"

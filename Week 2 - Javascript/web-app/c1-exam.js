@@ -34,12 +34,12 @@ Exam.every_third = function (input_list) {
 //       returns "the jack cow and jumped jill over went the up moon the"
 Exam.merge_sentences = function (sentence_one_words,sentence_two_words) {
     var final_sentence=[];
-    var sentence_one= sentence_one.split(" ");
-    var sentence_two= sentence_two.split(" ");
+    var sentence_one= sentence_one_words.split(" ");
+    var sentence_two= sentence_two_words.split(" ");
     if  (sentence_one.length !== sentence_two.length) {
         throw "ValueError"; 
     }
-    return s1_words.flatMap((v, k) => [v, s2_words[k]]).join(" ");
+    return sentence_one.flatMap((v, k) => [v, sentence_two[k]]).join(" ");
 };
     
 
@@ -65,8 +65,8 @@ Exam.merge_sentences = function (sentence_one_words,sentence_two_words) {
 
 Exam.lowercase_count = function (input_string) {
     const letters = input_string.split("");
-   return letters.filter((l)=> l !== l.toUpperCase()).length
-}: 
+   return letters.filter((l)=> l !== l.toUpperCase()).length;
+};
    
 
 // Objects
@@ -86,10 +86,10 @@ Exam.lowercase_count = function (input_string) {
 // };
 Exam.longest_key = function (long_key) {
     return Object.keys(object). reduce((a,x) => (
-        a.length >= x.length;
+        a.length >= x.length)
         ? a
         : x
-    ))
+    );
 }; 
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
@@ -117,7 +117,7 @@ Exam.value_greatest_even = function (value_dict) {
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
 Exam.greeting = function(username, location="London") {
-    return 'Hello, ' + {username} + ", how is " + {location} + '?'; 
+    return "Hello, " + {username} + ", how is " + {location} + '?'; 
 };
 
 
@@ -129,7 +129,7 @@ Exam.greeting = function(username, location="London") {
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
 Exam.floor_line = function (x, scalar=1, offset=0) {
-    answer = x*scalar+offset; //maths calculation desired
+    const answer = x*scalar+offset; //maths calculation desired
     if (answer>0) { //determine whether the calculation answer is positive
         return answer;
     }
@@ -138,4 +138,4 @@ Exam.floor_line = function (x, scalar=1, offset=0) {
 
 
 
-export default Object.freeze(Exam)}
+export default Object.freeze(Exam)
