@@ -9,10 +9,10 @@ List.transpose = (list) => list[0].map(
 
 List.range = (start, end, step) => { 
     var step_array=[]; 
-    var difference=((end-start)/(step-1));
+    var difference=((end-start)/(step));
 
-    for (var i=0; i<step; i++) {
-       step_array.push(start+ (difference*i));
+    for (var i=0; i<difference; i+=1) {
+      step_array.push(start+ (step*i));
     };
     return step_array
 }; 
@@ -45,10 +45,18 @@ List.rest = array => array.slice(array[1]);
 
 
 
+List.reject = array => array.filter(x =>(array.filter(func)).includes(x) === false); 
 
+//REJECT FUNCTION
+// List.reject = array => array.map((array) => array!==(array.filter(word=> word.length>6))); 
+// function arrayRemove(arr, value) { 
+    
+//     return arr.filter(function(ele){ 
+//         return ele != value; 
+//     });
+// }
 
-
-// List.reject = array => array.filter(array) => array!==(array.filter(word=> word.length>6))); 
+// var result = arrayRemove(array, 6);
 // function reject(array, iteratorFunction) {
 //     return array.filter(el => !iteratorFunction(el));
 // // List.reject = (array) => delete[ indexOf(array.filter(!(word=> word.length>6))
@@ -59,21 +67,10 @@ const add_3 = function (x) {
     return x + 3;
 };
 
-console.log(List.most([0,1,2,3])); 
+// console.log(List.most([0,1,2,3])); 
 // console.log(List.reject(['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']));
 // console.log(List.curry_includes(3)([0,1,2,3]));
 // console.log(List.curry_map(add_3)([0,1,2,3]));
 // console.log(List.range(2,5,0.5));
 
 export default Object.freeze(List);
-
-
-// function makeArr(startValue, stopValue, cardinality) {
-//     var arr = [];
-//     var step = (stopValue - startValue) / (cardinality - 1);
-//     for (var i = 0; i < cardinality; i++) {
-//       arr.push(startValue + (step * i));
-//     }
-//     return arr;
-//   }
-  

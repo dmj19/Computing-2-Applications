@@ -79,8 +79,21 @@ Deck.decks_equal = (deck_1, deck_2) => (
  * https://en.wikipedia.org/wiki/Faro_shuffle
  */
 Deck.faro_out_shuffle = function (deck) {
-    return deck; // Placeholder implementation.
+    const first_half= deck.slice(0, deck.indexOf((array.length)/2); 
+    const second_half= deck.slice(deck.indexOf((array.length)/2); 
+    return first_half.flatMap((v,k)=> [v,second_half[k].join("")]); // Placeholder implementation.
 };
+
+// Exam.merge_sentences = function (sentence_one_words,sentence_two_words) {
+//     var final_sentence=[];
+//     var sentence_one= sentence_one_words.split(" ");
+//     var sentence_two= sentence_two_words.split(" ");
+//     if  (sentence_one.length !== sentence_two.length) {
+//         throw "ValueError"; 
+//     }
+//     return sentence_one.flatMap((v, k) => [v, sentence_two[k]]).join(" ");
+// };
+    
 
 /**
  * Return a mathematically 'perfect' shuffle of a deck.
