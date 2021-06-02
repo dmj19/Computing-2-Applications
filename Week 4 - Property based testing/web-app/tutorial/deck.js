@@ -79,11 +79,22 @@ Deck.decks_equal = (deck_1, deck_2) => (
  * https://en.wikipedia.org/wiki/Faro_shuffle
  */
 Deck.faro_out_shuffle = function (deck) {
-    const first_half= deck.slice(0, deck.indexOf((array.length)/2); 
-    const second_half= deck.slice(deck.indexOf((array.length)/2); 
-    return first_half.flatMap((v,k)=> [v,second_half[k].join("")]); // Placeholder implementation.
+    const first_half= deck.slice(0, ((deck.length/2))); 
+    const second_half= deck.slice((deck.length/2), deck.length); 
+    return first_half.flatMap((v,k)=> [v,second_half[k]]); // Placeholder implementation.
 };
 
+
+// Deck.faro_out_shuffle = function (deck) {
+//     const top = deck.slice(0, Math.floor(deck.length / 2));
+//     const bottom = deck.slice(Math.floor(deck.length / 2), deck.length);
+//     return top.flatMap(function (card, index) {
+//         return [card, bottom[index]];
+//     });
+//     return deck; // Placeholder implementation.
+// };
+
+ 
 // Exam.merge_sentences = function (sentence_one_words,sentence_two_words) {
 //     var final_sentence=[];
 //     var sentence_one= sentence_one_words.split(" ");

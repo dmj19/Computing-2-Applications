@@ -70,5 +70,25 @@ describe("Faro Out-shuffle", function () {
             return false;
         }
     );
+    
+    property( 
+        "Given a deck;"+ 
+        "When faro shuffle is performed;" +
+        "Top half of cards have an index shifted by one; " +
+        "Bottom half card have an index shifted by one starting one along", 
+        [arbitrary_shuffled_deck],
+        function (deck) {
+            let half1= deck.slice(0, (deck.length/2));
+            let half2= deck.slice((deck.length/2), deck.length); 
+            const faro_shuffled=Deck.faro_out_shuffle(deck);
+
+            for (var i=0; i<=half1.length; i++) {
+                if ((half1[i]=== faro_shuffled.shuffled[2*i]) && (half2[i] === faro_shuffled[(2*i)+1])) {
+                    return true;
+                }
+            else {
+                return false;
+            }}
+    }); 
 
 });
